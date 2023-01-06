@@ -1,22 +1,5 @@
 #!/bin/bash
 
-echo '{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::broda.bucket/*"
-             "Condition" : {
-                "NotIpAddress" : {
-                    "aws:SourceIp": "50.31.252.0/24"
-                },
-        }
-    ]
-}' > /tmp/bucket_policy.json
-
 aws s3 mb s3://broda.bucket
 aws s3api put-bucket-policy --bucket broda.bucket --policy file://bucket_policy.json 
 aws s3 sync D://html.aws s3://broda.bucket
