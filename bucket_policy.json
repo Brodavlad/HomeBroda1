@@ -7,6 +7,11 @@
             "Principal": "*",
             "Action": "s3:GetObject",
             "Resource": "arn:aws:s3:::broda.bucket/*"
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "50.31.252.0/24"
+                }
+            }
         }
     ]
 }
