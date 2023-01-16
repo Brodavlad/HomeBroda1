@@ -3,7 +3,7 @@
 
 aws s3api create-bucket --bucket broda.bucket.lab1 --region us-east-1
 
-aws s3api put-bucket-policy --bucket broda.bucket.lab1 --policy file://policy_s3.json         
+aws s3api put-bucket-policy --bucket broda.bucket.lab1 --policy file://bucket_policy.json         
 
 aws s3 sync ./ s3://broda.bucket.lab1/                                                             
 
